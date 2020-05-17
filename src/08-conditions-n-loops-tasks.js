@@ -27,8 +27,11 @@
  *  21 => 'Fizz'
  *
  */
-function getFizzBuzz(/* num */) {
-  throw new Error('Not implemented');
+function getFizzBuzz(num) {
+  if (!(num % 15)) return 'FizzBuzz';
+  if (!(num % 5)) return 'Buzz';
+  if (!(num % 3)) return 'Fizz';
+  return num;
 }
 
 
@@ -43,8 +46,12 @@ function getFizzBuzz(/* num */) {
  *   5  => 120
  *   10 => 3628800
  */
-function getFactorial(/* n */) {
-  throw new Error('Not implemented');
+function getFactorial(n) {
+  let results = 1;
+  for (let i = 1; i <= n; i += 1) {
+    results *= i;
+  }
+  return results;
 }
 
 
@@ -60,8 +67,12 @@ function getFactorial(/* n */) {
  *   5,10  =>  45 ( = 5+6+7+8+9+10 )
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
-function getSumBetweenNumbers(/* n1, n2 */) {
-  throw new Error('Not implemented');
+function getSumBetweenNumbers(n1, n2) {
+  let result = 0;
+  for (let i = n1; i <= n2; i += 1) {
+    result += i;
+  }
+  return result;
 }
 
 
@@ -80,8 +91,8 @@ function getSumBetweenNumbers(/* n1, n2 */) {
  *   10,1,1   =>  false
  *   10,10,10 =>  true
  */
-function isTriangle(/* a, b, c */) {
-  throw new Error('Not implemented');
+function isTriangle(a, b, c) {
+  return a < b + c && b < a + c && c < a + b;
 }
 
 
@@ -164,8 +175,14 @@ function isInsideCircle(/* circle, point */) {
  *   'abracadabra'  => 'c'
  *   'entente' => null
  */
-function findFirstSingleChar(/* str */) {
-  throw new Error('Not implemented');
+function findFirstSingleChar(str) {
+  for (let i = 0; i < str.length; i += 1) {
+    const c = str.charAt(i);
+    if (str.indexOf(c) === i && str.indexOf(c, i + 1) === -1) {
+      return c;
+    }
+  }
+  return null;
 }
 
 
@@ -208,8 +225,8 @@ function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
  * 'rotator' => 'rotator'
  * 'noon' => 'noon'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  return str.split('').reverse().join('');
 }
 
 
@@ -225,8 +242,8 @@ function reverseString(/* str */) {
  *   87354 => 45378
  *   34143 => 34143
  */
-function reverseInteger(/* num */) {
-  throw new Error('Not implemented');
+function reverseInteger(num) {
+  return num.toString().split('').reverse().join('');
 }
 
 
@@ -301,14 +318,14 @@ function isBracketsBalanced(/* str */) {
 
 /**
  * Returns the string with n-ary (binary, ternary, etc, where n <= 10)
- * representation of specified number.
+ * represultsentation of specified number.
  * See more about
  * https://en.wikipedia.org/wiki/Binary_number
  * https://en.wikipedia.org/wiki/Ternary_numeral_system
  * https://en.wikipedia.org/wiki/Radix
  *
  * @param {number} num
- * @param {number} n, radix of the result
+ * @param {number} n, radix of the resultsult
  * @return {string}
  *
  * @example:
@@ -370,7 +387,7 @@ function getMatrixProduct(/* m1, m2 */) {
  *
  * Position is provides as 3x3 array with the following values: 'X','0', undefined
  * Function should return who is winner in the current position according to the game rules.
- * The result can be: 'X','0',undefined
+ * The resultsult can be: 'X','0',undefined
  *
  * @param {array} position
  * @return {string}
